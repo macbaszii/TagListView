@@ -56,6 +56,13 @@ class ViewController: UIViewController, TagListViewDelegate {
         biggestTagListView.addTag("belong")
         biggestTagListView.addTag("to")
         biggestTagListView.addTag("us")
+        
+        let borderedTagView = biggestTagListView.addTag("Bordered")
+        borderedTagView.borderWidth = 2.0
+        borderedTagView.borderColor = UIColor.red
+        borderedTagView.selectedBorderWidth = 5.0
+        borderedTagView.selectedBorderColor = UIColor.black
+        
         biggestTagListView.alignment = .right
         
     }

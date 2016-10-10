@@ -64,6 +64,12 @@ open class TagView: UIButton {
         }
     }
     
+    @IBInspectable open var selectedBorderWidth: CGFloat? {
+        didSet {
+            reloadStyles()
+        }
+    }
+    
     @IBInspectable open var selectedBorderColor: UIColor? {
         didSet {
             reloadStyles()
@@ -92,11 +98,13 @@ open class TagView: UIButton {
         }
         else if isSelected {
             backgroundColor = selectedBackgroundColor ?? tagBackgroundColor
+            layer.borderWidth = selectedBorderWidth ?? borderWidth
             layer.borderColor = selectedBorderColor?.cgColor ?? borderColor?.cgColor
             setTitleColor(selectedTextColor, for: UIControlState())
         }
         else {
             backgroundColor = tagBackgroundColor
+            layer.borderWidth = borderWidth
             layer.borderColor = borderColor?.cgColor
             setTitleColor(textColor, for: UIControlState())
         }
